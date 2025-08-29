@@ -1,4 +1,5 @@
 /* Лекиця 1.5 Списки*/
+
 // Вставка в начало списка
 // function addNewHead(linkedList,el){
 //     node = {
