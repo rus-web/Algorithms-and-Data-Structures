@@ -1,5 +1,65 @@
 /* Лекиция 1.6 Очереди,деки и стек */
 
+// Стек 
+
+class Stack {
+    constructor(){
+        this.stack = [];
+    }
+
+    // Кладем в вершину стека
+    push(item){
+        this.stack.push(item);
+        return this
+    };
+
+    // Снимаем верхний элемент
+    pop(){
+        if(this.stack.length === 0){
+            return false 
+        } else {
+            return this.stack.pop();
+        }
+       
+    }
+
+}
+
+const stack = new Stack();
+
+// Очередь
+
+class Queue{
+    constructor(){
+        this.queue = [];
+    };
+
+    // Добавляем элемент в очередь
+    enqueue(data){
+        this.queue.push(data)
+        return this
+    };
+
+    // Удаляем первый элемент из очереди
+    dequeue(){
+        if(this.queue.length === 0){
+            return false
+        } else{
+            return this.queue.shift()
+        }
+    };
+}
+
+const queue = new Queue();
+
+console.log(queue.enqueue('Hello'))
+console.log(queue.enqueue('World'))
+console.log(queue.dequeue())
+console.log(queue.dequeue())
+console.log(queue.dequeue())
+
+
+
 // Вставка
 
 // class Stack{
