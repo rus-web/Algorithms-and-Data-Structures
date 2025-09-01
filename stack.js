@@ -3,6 +3,64 @@
 
 // Является ли одна строка исходной для другой 
 
+// Метод Очередь 
+
+var a = ["a","b","d",];
+var b = ["u","a","b","q","d"]
+
+class Queue{
+    constructor(){
+        this.queue = [];
+    };
+
+    // Добавляем элемент в очередь
+    enqueue(data){
+        this.queue.push(data)
+        return this
+    };
+
+    // Удаляем первый элемент из очереди
+    dequeue(){
+        if(this.getSize() === 0){
+            return false
+        } else{
+            return this.queue.shift()
+        }
+    };
+
+    // Указатель на первый элемент очереди
+    peek(){
+        if(this.getSize() === 0){
+            return false
+        } else{
+            return this.queue[0]
+        }
+    };
+
+    // указатель размера списка
+    getSize(){
+        return this.queue.length
+    }
+};
+
+const queue = new Queue();
+
+function isSubsequence(a,b){
+    for (let i = 0; i < a.length; i++){
+        queue.enqueue(a[i]);
+    }
+
+    for(let i = 0; i < b.length; i++){
+        if(queue.peek() === b[i]){
+            queue.dequeue()
+        }
+    }
+    console.log(queue.getSize())
+};
+
+// isSubsequence(a,b);
+
+
 var firsArr = ['a','b','c','d'];
 var nextArr = ['a','f','b','c','d'];
 
