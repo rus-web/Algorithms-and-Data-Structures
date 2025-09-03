@@ -108,4 +108,48 @@ function rightBinary(data, target){
     return -1
 }
 
-console.log(rightBinary(newArr2, target))
+// console.log(rightBinary(newArr2, target))
+
+// Задание 2.1 Поиск позиции
+
+/*Дан отсортированный по возрастанию массив целых чисел и заданное число. Если заданное число уже находится в массиве, верните его индекс. 
+Если числа в массиве нет, верните индекс, где оно должно находиться, чтобы сохранить порядок сортировки. */
+
+/* Формат входных данных
+В первой строке задаётся число N — количество элементов в массиве.
+Во второй строке вводится массив из N целых чисел, разделённых пробелами.
+В третьей строке задаётся число target, для которого нужно найти индекс.
+*/
+
+/*Формат выходных данных
+Программа должна вывести одно число — индекс числа target, если оно уже есть в массиве, или индекс, 
+где оно должно находиться для сохранения порядка сортировки. */
+
+
+var N = 5;
+var newArr3 = [5,7,9,11,13];
+var target = 12;
+
+function findTarget(data, target){
+    var left = 0;
+    var right = data.length - 1;
+    
+    while (left <= right){
+        var middle = Math.floor((right + left)/2);
+
+        if(data[middle] === target){
+            return middle;
+        };
+
+        if (data[middle] > target){
+            right = middle - 1;
+        } else {
+            left = middle + 1
+        };
+
+    };
+
+    return left;
+}
+
+console.log(`Это число: ${findTarget(newArr3,target)}`)
