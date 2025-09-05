@@ -27,4 +27,45 @@ function binarySearchSqrt(target){
     return right
 }
 
-console.log(binarySearchSqrt(15))
+// console.log(binarySearchSqrt(15))
+
+// Задача дипломы 
+
+function binarySearch(w,h,n){
+    left = Math.max(w,h)
+    right = left * n;
+
+    while(left + 1 < right){
+        middle = (right + left)/2;
+        res = (middle / w) * (middle / h);
+        if(res < n){
+            left = middle;
+        } else {
+            right = middle;
+        };    
+    }
+    return right
+}
+
+// console.log(binarySearch(1,3,9))
+
+// Очень легкая задача 
+
+function copyTime(n,x,y){
+    left = 0;
+    right = (n-1) * Math.max(x,y);
+
+    while (left + 1 < right){
+        middle = (right + left)/2;
+        if (middle/x + middle/y < n - 1){
+            left = middle;
+        } else {
+            right = middle;
+        }
+    };
+
+    return right + Math.min(x,y)
+}
+
+console.log(copyTime(250,3,5))
+
